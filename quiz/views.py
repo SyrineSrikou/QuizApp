@@ -1,6 +1,6 @@
 from django.shortcuts import render
 from django.http import HttpResponse
-from .models import Question
+from .models import Question, Quiz
 from django.core.paginator import Paginator
 
 lst = []
@@ -41,7 +41,8 @@ def saveans(request):
     lst.append(ans)
         
 def welcome(request):
+    quizes = Quiz.objects.all().filter(is_active=True)
     lst.clear()
-    return render(request,'welcome.html')
+    return render(request,'welcome.html', {'quizes': quizes} )
       
     

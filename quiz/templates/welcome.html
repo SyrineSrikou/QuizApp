@@ -1,24 +1,33 @@
+{% load static %}	
+
 <!DOCTYPE html>
         <html lang="en">
         <head>
             <meta charset="UTF-8">
             <meta name="viewport" content="width=device-width, initial-scale=1.0">
             <title>Welcome to Quiz App</title>
-            <style>
-                a {
-            width: 15%;
-            height: 5%;
-            background-color: rgb(243, 234, 234);
-            position: absolute;
-            top:0;
-            bottom: 0;
-            left: 0;
-            right: 0;
-            margin: auto;
-        }
-            </style>
+            
+            <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BmbxuPwQa2lc/FVzBcNJ7UAyJxM6wuqIj61tLrc4wSX0szH/Ev+nYRRuWlolflfl" crossorigin="anonymous">
+
         </head>
-        <body>
-            <center><h1><a href="/quiz/">Start Quiz</a></h1></center>
+        <body> 
+
+            <center>
+                <h1>Available quizes</h1>
+                {% for quiz in quizes%}
+                
+                    <div class="card" style="width: 18rem;">
+                        <img src="{{quiz.logo.url}}" class="card-img-top" alt="java logo" >
+                        <div class="card-body">
+                            <h2>{{quiz.title}} Exam</h2>
+                            <a href="/quiz/" > <button class=" btn btn-primary">start</button></a>
+                        </div>
+                        
+                    </div>
+                    
+                {%endfor%}
+            </center>  
+
+            <<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/js/bootstrap.bundle.min.js" integrity="sha384-b5kHyXgcpbZJO/tY9Ul7kGkf1S0CWuKcCD38l8YkeH8z8QjE0GmW1gYU5S9FOnJ0" crossorigin="anonymous"></script>
         </body>
         </html>
